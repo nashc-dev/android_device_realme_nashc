@@ -381,6 +381,7 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1.vendor \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.sensors@2.0-service-multihal.nashc \
+    als_correction_service.nashc \
     libsensorndkbridge
 
 # Soundtrigger
