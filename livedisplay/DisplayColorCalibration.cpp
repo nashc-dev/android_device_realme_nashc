@@ -32,12 +32,6 @@ namespace livedisplay {
 namespace V2_0 {
 namespace nashc {
 
-bool DisplayColorCalibration::isSupported() {
-    std::fstream rgb(FILE_RGB, rgb.in | rgb.out);
-
-    return rgb.good();
-}
-
 // Methods from ::vendor::lineage::livedisplay::V2_0::IDisplayColorCalibration follow.
 Return<int32_t> DisplayColorCalibration::getMaxValue() {
     return 2000;
