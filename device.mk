@@ -306,6 +306,9 @@ PRODUCT_PACKAGES += \
     ueventd.oplus.rc \
     nfc_detect.sh
 
+PRODUCT_PACKAGES += \
+    init.recovery.mt6785.rc
+
 # Secure Element
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0.vendor \
