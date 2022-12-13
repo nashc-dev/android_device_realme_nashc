@@ -117,6 +117,10 @@ PRODUCT_PACKAGES += \
     ueventd.mtk.rc \
     ueventd.oplus.rc
 
+# Soundtrigger
+PRODUCT_PACKAGES += \
+    android.hardware.soundtrigger@2.3-impl
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
