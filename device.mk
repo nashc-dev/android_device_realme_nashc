@@ -168,6 +168,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
     $(LOCAL_PATH)/configs/seccomp/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy
 
+# Overlays
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-mediatek \
@@ -221,12 +227,6 @@ PRODUCT_PACKAGES += \
 # Soundtrigger
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.3-impl
-
-# Overlays
-PRODUCT_ENFORCE_RRO_TARGETS := *
-
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
