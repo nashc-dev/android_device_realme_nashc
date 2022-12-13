@@ -62,6 +62,9 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz
 # Platform
 TARGET_BOARD_PLATFORM := mt6785
 
+# Power
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
+
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
 
