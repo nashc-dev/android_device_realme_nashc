@@ -236,6 +236,10 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator-service.nashc
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.1.vendor \
