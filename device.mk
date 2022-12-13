@@ -101,6 +101,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service-mediatek
 
+# Rootdir
+PRODUCT_PACKAGES += \
+    fstab.mt6785 \
+    init.ago.rc \
+    init.cgroup.rc \
+    init.connectivity.common.rc \
+    init.connectivity.rc \
+    init_connectivity.rc \
+    init.modem.rc \
+    init.mt6785.rc \
+    init.mt6785.usb.rc \
+    init.project.rc \
+    init.sensor_1_0.rc \
+    ueventd.mtk.rc
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
