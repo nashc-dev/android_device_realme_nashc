@@ -86,3 +86,10 @@ prebuilt_etc {
     src: "etc/ueventd.mtk.rc",
     vendor: true,
 }
+
+prebuilt_etc {
+    name: "ueventd.oplus.rc",
+    filename: "ueventd.rc",
+    src: "etc/ueventd.oplus.rc",
+    device_specific: true,
+}

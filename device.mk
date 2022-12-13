@@ -114,7 +114,8 @@ PRODUCT_PACKAGES += \
     init.mt6785.usb.rc \
     init.project.rc \
     init.sensor_1_0.rc \
-    ueventd.mtk.rc
+    ueventd.mtk.rc \
+    ueventd.oplus.rc
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
