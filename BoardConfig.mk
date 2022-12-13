@@ -78,6 +78,9 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # SPL
 VENDOR_SECURITY_PATCH := 2022-11-05
 
+# FOD
+TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/oplus:libudfps_extension.oplus
+
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
