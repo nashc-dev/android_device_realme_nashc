@@ -103,6 +103,12 @@
         <fqname>@2.3::ISoundTriggerHw/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.secure_element</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::ISecureElement/SIM1</fqname>
+        <fqname>@1.2::ISecureElement/SIM2</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.tetheroffload.config</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IOffloadConfig/default</fqname>
@@ -273,6 +279,18 @@
         <name>vendor.mediatek.hardware.videotelephony</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IVideoTelephony/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.appradio</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusAppRadio/oplus_app_slot1</fqname>
+        <fqname>@1.0::IOplusAppRadio/oplus_app_slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.radio</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusRadio/oplus_slot1</fqname>
+        <fqname>@1.0::IOplusRadio/oplus_slot2</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.trustonic.tee</name>
