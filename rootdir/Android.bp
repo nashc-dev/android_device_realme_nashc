@@ -93,3 +93,9 @@ prebuilt_etc {
     src: "etc/ueventd.oplus.rc",
     device_specific: true,
 }
+
+sh_binary {
+    name: "nfc_detect.sh",
+    src: "bin/nfc_detect.sh",
+    vendor: true,
+}

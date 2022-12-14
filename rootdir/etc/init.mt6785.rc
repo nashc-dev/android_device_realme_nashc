@@ -24,6 +24,10 @@ on early-init
 	#ifdef /*Xuhang.Li@bsp.tp.basic , 2021/08/20, add for bspFwUpdate*/
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
     #endif/*OPLUS_FEATURE_TP_BSPFWUPDATE*/
+
+    # Start NFC detection script
+    start nfc_detect
+
 on init
     write /proc/bootprof "INIT:init"
     # Support legacy paths
@@ -1110,4 +1114,10 @@ service osi /system/bin/osi
     oneshot
     #seclabel u:r:osi:s0
 
-
+# NFC Detection script
+service nfc_detect /vendor/bin/nfc_detect.sh
+    class main
+    user root
+    group system
+    disabled
+    oneshot
