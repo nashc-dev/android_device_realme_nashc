@@ -289,6 +289,7 @@ PRODUCT_PACKAGES += \
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.mt6785 \
+    fstab.mt6785_ramdisk \
     init.ago.rc \
     init.cgroup.rc \
     init.connectivity.common.rc \
