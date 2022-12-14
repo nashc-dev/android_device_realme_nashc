@@ -1918,6 +1918,16 @@ vendor/lib64/libnir_neon_driver_ndk.mtk.vndk.so
 vendor/lib64/libnxp_extamp_intf.so
 vendor/lib64/libtflite_mtk.so
 
+# NFC
+odm/etc/init/init.pn8x.nfc.rc
+odm/etc/nfc/libnfc-nxp.conf_20732:vendor/etc/libnfc-nxp.conf
+odm/etc/nfc/pnscr/libnfc-nxp-pnscr.conf:odm/etc/libnfc-nxp-pnscr.conf
+odm/lib/libpn553_fw.so
+odm/lib/libpn557_fw.so
+odm/lib/libpnscr2.so
+odm/lib/libsn100u_fw.so
+odm/lib64/libpnscr2.so
+
 # NVRAM
 vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service
 vendor/bin/fuelgauged_nvram
