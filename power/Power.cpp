@@ -89,6 +89,7 @@ Power::Power() {
         abort();
     }
 
+    mLowPowerEnabled = 0;
     libpowerhal_Init(1);
 }
 
