@@ -26,11 +26,10 @@ cc_binary {
         "libhidlbase",
         "libutils",
         "vendor.lineage.livedisplay@2.0",
-        "vendor.lineage.livedisplay@2.1"
+        "vendor.lineage.livedisplay@2.1",
     ],
 
     srcs: [
-	"DisplayColorCalibration.cpp",
         "AntiFlicker.cpp",
         "SunlightEnhancement.cpp",
         "service.cpp",
