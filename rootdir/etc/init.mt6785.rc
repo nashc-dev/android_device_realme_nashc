@@ -1122,7 +1122,7 @@ service nfc_detect /vendor/bin/nfc_detect.sh
     disabled
     oneshot
 
-on property:ro.boot.product.hardware.sku=nfc
+on property:ro.boot.product.vendor.sku=nfc
     start vendor.nfc_hal_service
     start mtk_secure_element_hal_service
 
