@@ -36,7 +36,6 @@ bluetooth.profile.pbap.server.enabled?=true
 bluetooth.profile.sap.server.enabled?=true
 
 # Camera
-vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram
 vendor.camera.mdp.dre.enable=1
 vendor.camera.mdp.cz.enable=1
 ro.vendor.camera3.zsl.default=270
