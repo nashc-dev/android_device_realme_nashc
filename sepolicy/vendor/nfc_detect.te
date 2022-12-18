@@ -1,0 +1,10 @@
+type nfc_detect, domain;
+type nfc_detect_exec, exec_type, vendor_file_type,file_type;
+
+init_daemon_domain(nfc_detect)
+
+allow nfc_detect vendor_toolbox_exec:file rx_file_perms;
+
+allow nfc_detect vendor_proc_nfc_chipset:file r_file_perms;
+
+set_prop(nfc_detect, vendor_variant_prop)

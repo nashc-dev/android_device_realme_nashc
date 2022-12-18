@@ -1,0 +1,9 @@
+#
+# Copyright (C) 2022 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+on early-init
+    exec u:r:nfc_detect:s0 -- /vendor/bin/nfc_detect.sh
+    setprop ro.boot.product.vendor.sku ${ro.vendor.device.variant}

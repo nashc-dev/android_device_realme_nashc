@@ -1,0 +1,56 @@
+# Camera
+/data/vendor/camera_update(/.*)?                                                                                       u:object_r:vendor_camera_update_data_file:s0
+/mnt/vendor/persist/camera(/.*)?                                                                                       u:object_r:persist_camera_file:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.engcamera@1\.0-service                                               u:object_r:mtk_hal_camera_exec:s0
+
+# Charging
+/dev/oplus_chg                                                                                                         u:object_r:oplus_charger_device:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.charger@1\.0-service                                                 u:object_r:hal_charger_oplus_exec:s0
+
+# Display
+/dev/oplus_display                                                                                                     u:object_r:oplus_display_device:s0
+
+# Light
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.nashc                                                 u:object_r:hal_light_default_exec:s0
+
+# LiveDisplay
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service-nashc                                         u:object_r:hal_lineage_livedisplay_nashc_exec:s0
+
+# Sensors
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@2\.0-service-multihal\.nashc                                 u:object_r:mtk_hal_sensors_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service                                             u:object_r:mtk_hal_sensors_exec:s0
+/dev/m_virtual_sensor_misc                                                                                             u:object_r:virtual_sensor_device:s0
+/dev/block/sdc4                                                                                                        u:object_r:oplus_block_device:s0
+/dev/block/platform/soc/11270000.ufshci/by-name/oplusreserve.*                                                         u:object_r:oplus_block_device:s0
+/dev/block/platform/bootdevice/by-name/oplusreserve.*                                                                  u:object_r:oplus_block_device:s0
+/dev/block/sdc7                                                                                                        u:object_r:oplus_block_device:s0
+/dev/block/platform/soc/11270000.ufshci/by-name/oplus_custom                                                           u:object_r:oplus_block_device:s0
+/dev/block/platform/bootdevice/by-name/oplus_custom                                                                    u:object_r:oplus_block_device:s0
+
+# Fingerprint
+/dev/jiiov_fp                                                                                                          u:object_r:fingerprint_device:s0
+/data/vendor/FactoryTestReport(/.*)?                                                                                   u:object_r:factorytestreport_vendor_data_file:s0
+/data/vendor/fingerprint(/.*)?                                                                                         u:object_r:oplus_fingerprint_file:s0
+/data/vendor/optical_fingerprint(/.*)?                                                                                 u:object_r:oplus_fingerprint_file:s0
+/mnt/vendor/persist/fingerprint(/.*)?                                                                                  u:object_r:oplus_fingerprint_file:s0
+/mnt/vendor/persist/cali_data\.so                                                                                      u:object_r:oplus_fingerprint_file:s0
+/mnt/vendor/persist/fingerprint/jiiov(/.*)?    	                                                                       u:object_r:factorytestreport_vendor_data_file:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.biometrics\.fingerprint@2\.1-service                                 u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.nashc                          u:object_r:hal_fingerprint_default_exec:s0
+
+# Firmwares
+/odm/vendor/firmware(/.*)?                                                                                             u:object_r:vendor_firmware_file:s0
+/odm/firmware(/.*)?                                                                                                    u:object_r:vendor_firmware_file:s0
+
+# Touch
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@[0-9]\.[0-9]-service\.nashc                                      u:object_r:hal_lineage_touch_default_exec:s0
+
+# NFC
+/dev/pn553                                                                                                             u:object_r:nfc_device:s0
+/(vendor|system/vendor)/bin/nfc_detect\.sh                                                                             u:object_r:nfc_detect_exec:s0
+
+# WiFi
+/(vendor|system/vendor)/bin/hw/android\.hardware\.wifi@[0-9]\.[0-9]-service-lazy\.nashc                                u:object_r:mtk_hal_wifi_exec:s0
+
+# Vibrator
+/vendor/bin/hw/android\.hardware\.vibrator-service\.nashc                                                              u:object_r:hal_vibrator_default_exec:s0

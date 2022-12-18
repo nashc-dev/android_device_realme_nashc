@@ -2,6 +2,7 @@
 
 import /vendor/etc/init/hw/init.connectivity.rc
 import /vendor/etc/init/hw/init.mt6785.usb.rc
+import /vendor/etc/init/hw/init.nfc_detect.rc
 import /vendor/etc/init/hw/init.project.rc
 import /vendor/etc/init/hw/init.volte.rc
 import /vendor/etc/init/hw/init.mal.rc
@@ -24,9 +25,6 @@ on early-init
 	#ifdef /*Xuhang.Li@bsp.tp.basic , 2021/08/20, add for bspFwUpdate*/
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
     #endif/*OPLUS_FEATURE_TP_BSPFWUPDATE*/
-
-    # Start NFC detection script
-    start nfc_detect
 
 on init
     write /proc/bootprof "INIT:init"
@@ -1113,14 +1111,6 @@ service osi /system/bin/osi
     disabled
     oneshot
     #seclabel u:r:osi:s0
-
-# NFC Detection script
-service nfc_detect /vendor/bin/nfc_detect.sh
-    class main
-    user root
-    group system
-    disabled
-    oneshot
 
 on property:ro.boot.product.vendor.sku=nfc
     start vendor.nfc_hal_service
