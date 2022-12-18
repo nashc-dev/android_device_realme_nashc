@@ -80,6 +80,7 @@
     </string-array>
 
     <!-- The scale factor for framework dimming -->
+    <integer name="config_udfpsDimmingBrightnessMin">649</integer>
     <integer name="config_udfpsDimmingBrightnessMax">2047</integer>
 
     <!-- The amount of delay to add when disabling the dimming.
