@@ -19,15 +19,24 @@
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
+#include "HighTouchPollingRate.h"
 #include "TouchscreenGesture.h"
 
+using vendor::lineage::touch::V1_0::IHighTouchPollingRate;
 using ::vendor::lineage::touch::V1_0::ITouchscreenGesture;
+using vendor::lineage::touch::V1_0::implementation::HighTouchPollingRate;
 using ::vendor::lineage::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
+    android::sp<IHighTouchPollingRate> highTouchPollingRateService = new HighTouchPollingRate();
     android::sp<ITouchscreenGesture> gestureService = new TouchscreenGesture();
 
     android::hardware::configureRpcThreadpool(1, true /*callerWillJoin*/);
+
+    if (highTouchPollingRateService->registerAsService() != android::OK) {
+        LOG(ERROR) << "Can't register HighTouchPollingRate HAL service.";
+        return 1;
+    }
 
     if (gestureService->registerAsService() != android::OK) {
         LOG(ERROR) << "Cannot register touchscreen gesture HAL service.";

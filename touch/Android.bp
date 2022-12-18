@@ -20,6 +20,7 @@ cc_binary {
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [
+        "HighTouchPollingRate.cpp",
         "TouchscreenGesture.cpp",
         "service.cpp",
     ],
