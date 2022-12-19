@@ -89,6 +89,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.6.vendor \
     libcamera2ndk_vendor
 
+PRODUCT_PACKAGES += \
+    libcamera_metadata_shim
+
 # Doze
 PRODUCT_PACKAGES += \
     OplusDoze
