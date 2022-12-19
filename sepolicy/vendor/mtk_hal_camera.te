@@ -6,6 +6,8 @@ allow mtk_hal_camera vendor_camera_update_data_file:dir rw_dir_perms;
 allow mtk_hal_camera vendor_camera_update_data_file:file create_file_perms;
 allow mtk_hal_camera persist_data_file:dir { search };
 
+allow mtk_hal_camera proc_sched_assist:file rw_file_perms;
+
 r_dir_file(mtk_hal_camera, vendor_proc_oplus_version)
 
 set_prop(mtk_hal_camera, vendor_oplus_prop)
