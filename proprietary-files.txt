@@ -1713,7 +1713,6 @@ framework/mediatek-ims-legacy.jar
 -framework/mediatek-telephony-base.jar
 -framework/mediatek-telephony-common.jar
 framework/mediatek-wfo-legacy.jar
--priv-app/ImsService/ImsService.apk
 odm/lib/vendor.oplus.hardware.ims@1.0.so
 odm/lib64/vendor.oplus.hardware.ims@1.0.so
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
@@ -1770,6 +1769,9 @@ vendor/lib64/vendor.mediatek.hardware.mmagent@1.1.so
 vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+
+# ImsService
+-priv-app/ImsService/ImsService.apk|a4c9a3ed45fc0ab5dbf5c66aff684f77e45e309c
 
 # Kernel Power Off Charging (KPOC)
 bin/kpoc_charger
