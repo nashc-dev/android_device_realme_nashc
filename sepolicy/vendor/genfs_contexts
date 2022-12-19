@@ -14,6 +14,7 @@ genfscon proc /ui_soc_decimal                                                   
 genfscon proc /wireless                                                                     u:object_r:vendor_proc_wireless:s0
 genfscon sysfs /class/oplus_chg                                                             u:object_r:vendor_sysfs_usb_supply:s0
 genfscon sysfs /devices/virtual/oplus_chg                                                   u:object_r:vendor_sysfs_usb_supply:s0
+genfscon sysfs /devices/platform/extcon_usb/extcon                                          u:object_r:sysfs_extcon:s0
 
 # Display
 genfscon proc /devinfo/lcd                          u:object_r:vendor_proc_display:s0
