@@ -2,8 +2,8 @@
 #<src>                           <mnt_point>    <type>          <mnt_flags and options>             <fs_mgr_flags>
 
 # Standard Android Mounts
-system                           /system        erofs  ro       wait,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
-system                           /system        ext4   ro       wait,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+system                           /system        erofs  ro       wait,avb=vbmeta_system,logical,first_stage_mount
+system                           /system        ext4   ro       wait,avb=vbmeta_system,logical,first_stage_mount
 vendor                           /vendor        erofs  ro       wait,avb,logical,first_stage_mount
 vendor                           /vendor        ext4   ro       wait,avb,logical,first_stage_mount
 product                          /product       erofs  ro       wait,avb,logical,first_stage_mount
