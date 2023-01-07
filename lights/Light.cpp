@@ -20,9 +20,9 @@
 
 #include <fstream>
 
-#define LCD_BRIGHTNESS  "/sys/class/leds/lcd-backlight/"
+#define LCD_LED         "/sys/class/leds/lcd-backlight/"
 
-#define MAX_BRIGHTNESS  2047
+#define BRIGHTNESS      "brightness"
 
 namespace {
 /*
@@ -64,21 +64,8 @@ static uint32_t getBrightness(const HwLightState& state) {
     return (77 * red + 150 * green + 29 * blue) >> 8;
 }
 
-static inline uint32_t scaleBrightness(uint32_t brightness, uint32_t maxBrightness) {
-    if (brightness == 0) {
-        return 0;
-    }
-
-    return (brightness - 1) * (maxBrightness - 1) / (0xFF - 1) + 1;
-}
-
-static inline uint32_t getScaledBrightness(const HwLightState& state, uint32_t maxBrightness) {
-    return scaleBrightness(getBrightness(state), maxBrightness);
-}
-
 static void handleBacklight(const HwLightState& state) {
-    uint32_t brightness = getScaledBrightness(state, MAX_BRIGHTNESS);
-    set(LCD_BRIGHTNESS, brightness);
+    set(LCD_LED BRIGHTNESS, getBrightness(state));
 }
 
 /* Keep sorted in the order of importance. */
