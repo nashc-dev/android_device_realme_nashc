@@ -258,6 +258,7 @@ on post-fs-data
 
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /mnt/vendor/nvdata
+    restorecon_recursive /mnt/vendor/persist
 
     #give system access to rfkill device node
     chmod 0660 /dev/rfkill
