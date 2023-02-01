@@ -44,3 +44,16 @@ genfscon proc /sys/vm/dirty_writeback_centisecs     u:object_r:proc_vm_dirty:s0
 genfscon proc /sys/kernel/sched_stune_task_threshold u:object_r:proc_sched_stune:s0 
 genfscon proc /sys/kernel/sched_assist_enabled       u:object_r:proc_sched_assist:s0
 genfscon proc /sys/kernel/sched_assist_scene         u:object_r:proc_sched_assist:s0
+
+# Wakeup
+genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup28                                      u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/charger/power_supply/battery/wakeup29                                  u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/charger/power_supply/ac/wakeup27                                       u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11007000.i2c0/i2c-0/0-005d/wakeup/wakeup26                             u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/10228000.gce/wakeup/wakeup1                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/10228000.gce_mbox/wakeup/wakeup0                                       u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11016000.i2c5/i2c-5/5-0034/mt6360_pmu_chg.2.auto/wakeup/wakeup14       u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1100f000.i2c3/i2c-3/3-0028/wakeup/wakeup12                             u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1000d000.pwrap/1000d000.pwrap:mt6359-pmic/mt635x-auxadc/wakeup/wakeup5 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1000d000.pwrap/1000d000.pwrap:mt6359-pmic/mt6359-rtc/wakeup/wakeup10   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1000d000.pwrap/1000d000.pwrap:mt6359-pmic/mt6359-rtc/rtc/rtc0/wakeup11 u:object_r:sysfs_wakeup:s0
