@@ -110,6 +110,7 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6785
+BOARD_HAS_MTK_HARDWARE := true
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
