@@ -21,29 +21,20 @@
 #include <hidl/HidlTransportSupport.h>
 
 #include "AntiFlicker.h"
-#include "SunlightEnhancement.h"
 
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
 using ::vendor::lineage::livedisplay::V2_1::IAntiFlicker;
-using ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement;
 using ::vendor::lineage::livedisplay::V2_1::implementation::AntiFlicker;
-using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
 
 int main() {
     android::sp<IAntiFlicker> af = new AntiFlicker();
-    android::sp<SunlightEnhancement> se = new SunlightEnhancement();
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
     if (af->registerAsService() != android::OK) {
         LOG(ERROR) << "Cannot register anti flicker HAL service.";
-        return 1;
-    }
-
-    if (se->registerAsService() != android::OK) {
-        LOG(ERROR) << "Cannot register sunlight enhancement HAL service.";
         return 1;
     }
 
