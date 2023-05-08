@@ -32,8 +32,8 @@
 #include <sys/un.h>
 #include <utils/Timers.h>
 
-#define PERSIST_ENG "/mnt/vendor/persist/engineermode/"
-#define SYSFS_BACKLIGHT "/sys/class/backlight/panel0-backlight/"
+#define PROC_OPLUSALS "/proc/oplusAls/"
+#define SYSFS_BACKLIGHT "/sys/class/leds/lcd-backlight/"
 
 namespace android {
 namespace hardware {
@@ -42,10 +42,10 @@ namespace V2_1 {
 namespace implementation {
 
 static const std::string rgbw_max_lux_paths[4] = {
-    PERSIST_ENG "red_max_lux",
-    PERSIST_ENG "green_max_lux",
-    PERSIST_ENG "blue_max_lux",
-    PERSIST_ENG "white_max_lux",
+    PROC_OPLUSALS "red_max_lux",
+    PROC_OPLUSALS "green_max_lux",
+    PROC_OPLUSALS "blue_max_lux",
+    PROC_OPLUSALS "white_max_lux",
 };
 
 bool DEBUG = false;
@@ -64,7 +64,7 @@ struct als_config {
     float max_brightness;
 };
 
-#define DEVICE_hotdogb
+#define DEVICE_nashc
 
 #if defined(DEVICE_guacamole) || defined(DEVICE_guacamoleg)
 static als_config conf = {
@@ -122,6 +122,20 @@ static als_config conf = {
     .grayscale_weights = { 0.33, 0.42, 0.25 },
     .sensor_inverse_gain = { 0.0615, 0.0466, 0.0361, 0.0288 },
 };
+#elif defined(DEVICE_nashc)
+static als_config conf = {
+    .hbr = true,
+    .rgbw_max_lux = { 840.0, 1558.0, 1337.0, 682.0 },
+    .rgbw_max_lux_div = { 829.0, 1537.0, 1319.0, 673.0 },
+    .rgbw_poly = {
+        { 2.4E-05, 0.00599, 0.21617, 0.0 },
+        { 4.8E-05, 0.0108, 0.24531, 0.0 },
+        { 3.7E-05, 0.01138, -0.05037, 0.0 },
+        { 7.4E-05, -0.01022, 0.53187, 0.0 },
+    },
+    .grayscale_weights = { 0.232, 0.415, 0.353 },
+    .sensor_inverse_gain = { 0.0615, 0.0466, 0.0361, 0.0288 },
+};
 #else
 #error No ALS configuration for this device
 #endif
@@ -172,7 +186,7 @@ void AlsCorrection::init() {
     initialized = true;
 
     // TODO: Constantly update and persist this
-    float screen_on_time = get(PERSIST_ENG "screenontimebyhours", 0.0);
+    float screen_on_time = get(PROC_OPLUSALS "screenontimebyhours", 0.0);
     float screen_aging_factor = 1.0 - screen_on_time / 87600.0;
     ALOGI("Screen on time: %.2fh (aging factor: %.2f%%)",
         screen_on_time, screen_aging_factor * 100.0);
@@ -197,17 +211,17 @@ void AlsCorrection::init() {
             conf.rgbw_max_lux[0], conf.rgbw_max_lux[1],
             conf.rgbw_max_lux[2], conf.rgbw_max_lux[3]);
 
-    float row_coe = get(PERSIST_ENG "row_coe", 0.0);
+    float row_coe = get(PROC_OPLUSALS "row_coe", 0.0);
     if (row_coe != 0.0) {
         conf.sensor_inverse_gain[0] = row_coe / 1000.0;
     }
     conf.agc_threshold = 800.0 / conf.sensor_inverse_gain[0];
 
-    float cali_coe = get(PERSIST_ENG "cali_coe", 0.0);
+    float cali_coe = get(PROC_OPLUSALS "cali_coe", 0.0);
     conf.calib_gain = cali_coe > 0.0 ? cali_coe / 1000.0 : 1.0;
     if(DEBUG) ALOGI("Calibrated sensor gain: %.2fx", 1.0 / (conf.calib_gain * conf.sensor_inverse_gain[0]));
 
-    float als_bias = get(PERSIST_ENG "als_bias", 0.0);
+    float als_bias = get(PROC_OPLUSALS "als_bias", 0.0);
     conf.bias = als_bias <= 4.0 ? als_bias : 0.0;
     if(DEBUG) ALOGI("Sensor bias: %.2f", conf.bias);
 
