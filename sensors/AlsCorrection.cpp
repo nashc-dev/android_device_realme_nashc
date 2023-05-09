@@ -33,7 +33,7 @@
 #include <utils/Timers.h>
 
 #define PROC_OPLUSALS "/proc/oplusAls/"
-#define SYSFS_BACKLIGHT "/sys/class/leds/lcd-backlight/"
+#define OPLUS_DISPLAY "/sys/kernel/oplus_display/"
 
 namespace android {
 namespace hardware {
@@ -225,7 +225,7 @@ void AlsCorrection::init() {
     conf.bias = als_bias <= 4.0 ? als_bias : 0.0;
     if(DEBUG) ALOGI("Sensor bias: %.2f", conf.bias);
 
-    float max_brightness = get(SYSFS_BACKLIGHT "max_brightness", 0.0);
+    float max_brightness = get(OPLUS_DISPLAY "oplus_max_brightness", 0.0);
     conf.max_brightness = max_brightness > 0.0 ? max_brightness : 1023.0;
 
     for (auto& range : hysteresis_ranges) {
@@ -278,7 +278,7 @@ void AlsCorrection::process(Event& event) {
     }
 
     nsecs_t now = systemTime(SYSTEM_TIME_BOOTTIME);
-    float brightness = get(SYSFS_BACKLIGHT "brightness", 0.0);
+    float brightness = get(OPLUS_DISPLAY "oplus_brightness", 0.0);
 
     if (state.last_update == 0) {
         state.last_update = now;
