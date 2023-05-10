@@ -1,3 +1,5 @@
+typeattribute mtk_hal_sensors socket_between_core_and_vendor_violators;
+
 r_dir_file(mtk_hal_sensors, vendor_proc_oplus_sensor_feature)
 r_dir_file(mtk_hal_sensors, vendor_sysfs_oplus_virtual_sensor)
 
@@ -13,3 +15,8 @@ allow mtk_hal_sensors vendor_proc_oplus_sensor_cali:file rw_file_perms;
 allow mtk_hal_sensors oplus_block_device:blk_file r_file_perms;
 allow mtk_hal_sensors block_device:dir search;
 allow mtk_hal_sensors persist_data_file:dir search;
+
+allow mtk_hal_sensors als_correction_service:unix_stream_socket connectto;
+allow mtk_hal_sensors als_correction_socket:sock_file rw_file_perms;
+
+r_dir_file(mtk_hal_sensors, sysfs_leds)

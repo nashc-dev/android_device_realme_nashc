@@ -1,0 +1,1 @@
+allowxperm als_correction_service proc_ged:file ioctl { proc_ged_ioctls };
