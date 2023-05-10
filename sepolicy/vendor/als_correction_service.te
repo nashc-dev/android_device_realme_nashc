@@ -1,1 +1,3 @@
 allowxperm als_correction_service proc_ged:file ioctl { proc_ged_ioctls };
+r_dir_file(als_correction_service, vendor_sysfs_graphics)
+r_dir_file(als_correction_service, vendor_proc_oplus_sensor_als)

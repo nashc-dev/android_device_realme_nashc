@@ -20,3 +20,6 @@ allow mtk_hal_sensors als_correction_service:unix_stream_socket connectto;
 allow mtk_hal_sensors als_correction_socket:sock_file rw_file_perms;
 
 r_dir_file(mtk_hal_sensors, sysfs_leds)
+r_dir_file(mtk_hal_sensors, vendor_proc_oplus_sensor_als)
+
+allow mtk_hal_sensors vendor_proc_oplus_sensor_als:file w_file_perms;

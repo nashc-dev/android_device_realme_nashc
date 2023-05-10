@@ -29,6 +29,7 @@ genfscon proc /fp_kernel_event                      u:object_r:vendor_proc_finge
 genfscon proc /oplus_nfc/chipset                    u:object_r:vendor_proc_nfc_chipset:s0
 
 # Sensors
+genfscon proc /oplusAls                             u:object_r:vendor_proc_oplus_sensor_als:s0
 genfscon proc /oplusSensorFeature                   u:object_r:vendor_proc_oplus_sensor_feature:s0
 genfscon proc /oplusCustom/Sensor                   u:object_r:vendor_proc_oplus_sensor_feature:s0
 genfscon proc /mag_soft_parameter.json              u:object_r:vendor_proc_oplus_sensor_param:s0
