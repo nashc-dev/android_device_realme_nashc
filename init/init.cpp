@@ -16,6 +16,7 @@
 
 #include <cstdlib>
 #include <fstream>
+#include <iostream>
 #include <cstring>
 #include <sys/sysinfo.h>
 
@@ -35,6 +36,36 @@ void property_override(char const prop[], char const value[])
     } else {
         __system_property_add(prop, strlen(prop), value, strlen(value));
     }
+}
+
+std::string read_cmdline(const std::string& key) {
+    std::ifstream cmdline("/proc/cmdline");
+    std::string line;
+    std::string value;
+
+    if (cmdline.is_open()) {
+        while (std::getline(cmdline, line)) {
+            std::stringstream ss(line);
+            std::string token;
+
+            while (std::getline(ss, token, ' ')) {
+                std::string::size_type pos = token.find(key);
+                if (pos != std::string::npos) {
+                    value = token.substr(pos + key.length() + 1);
+                    return value;
+                }
+            }
+        }
+    }
+
+    return value;
+}
+
+void load_bootmode_properties() {
+    std::string boot_reason = read_cmdline("androidboot.bootreason");
+
+    if (boot_reason == "usb")
+        property_override("ro.bootmode", "charger");
 }
 
 void load_dalvik_properties() {
@@ -77,5 +108,6 @@ void load_dalvik_properties() {
 }
 
 void vendor_load_properties() {
+    load_bootmode_properties();
     load_dalvik_properties();
 }
