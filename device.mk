@@ -184,6 +184,7 @@ PRODUCT_PACKAGES += \
 
 # KPOC
 PRODUCT_PACKAGES += \
+    libshim_showlogo \
     libsuspend
 
 # Lights
